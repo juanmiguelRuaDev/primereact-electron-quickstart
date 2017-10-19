@@ -12,6 +12,8 @@
   },
   "devDependencies": {
     "electron": "^1.7.9",
+    "electron-builder": "^19.8.0",
+    "electron-is-dev": "^0.1.2",
     "classnames": "^2.2.5",
     "font-awesome": "^4.7.0",
     "primereact": "1.1.0",
