@@ -1,0 +1,31 @@
+{
+  "name": "primereact-electron-quickstart",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "cross-env": "5.0.1",
+    "concurrently": "^3.5.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.14",
+    "wait-on": "^2.0.2"
+  },
+  "devDependencies": {
+    "electron": "^1.7.9",
+    "classnames": "^2.2.5",
+    "font-awesome": "^4.7.0",
+    "primereact": "1.1.0",
+    "axios": "^0.15.3"
+  },
+  "homepage": "./",
+  "main": "src/electron-starter.js",
+  "scripts": {
+    "react-start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "electron-dev": "set DEV_URL=http://localhost:3000 && electron .",
+    "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000/ && npm run electron-dev\""
+  }
+}
