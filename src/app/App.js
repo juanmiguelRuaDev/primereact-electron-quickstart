@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { DataTable } from 'primereact/components/datatable/DataTable';
+import {DataGrid} from 'primereact/components/datagrid/DataGrid';
 import { Column } from 'primereact/components/column/Column';
 import { CarService } from './../service/CarService';
 import { Button } from "primereact/components/button/Button";
@@ -89,12 +90,18 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to PrimeReact/Electron</h1>
+          <h1 className="App-title">BARRIER DESKTOP</h1>
         </header>
 
         <div className="container">
 
-          <DataTable value={this.state.cars} paginator={true} rows={10} header={header} footer={footer}
+        <div className="ui-grid ui-grid-responsive ui-fluid">
+          <div className="ui-g-6">
+            <DataGrid value={this.state.cars} ></DataGrid>
+          </div>
+          
+          <div className="ui-g-6">
+            <DataTable value={this.state.cars} paginator={true} rows={10} header={header} footer={footer}
             selectionMode="single" selection={this.state.selectedCar} onSelectionChange={(e) => { this.setState({ selectedCar: e.data }); }}
             onRowSelect={this.onCarSelect}>
             <Column field="vin" header="Vin" sortable={true} />
@@ -102,6 +109,10 @@ class App extends Component {
             <Column field="brand" header="Brand" sortable={true} />
             <Column field="color" header="Color" sortable={true} />
           </DataTable>
+          </div>
+        </div>
+
+          
 
           <Dialog visible={this.state.displayDialog} header="Car Details" modal={true} footer={dialogFooter} onHide={() => this.setState({ displayDialog: false })}>
             {this.state.car && <div className="ui-grid ui-grid-responsive ui-fluid">
